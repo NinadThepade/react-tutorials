@@ -24,6 +24,25 @@
             );
         }
     });
+    // tutorial2.js
+    var CommenList = React.createClass({
+       render: function() {
+           return(
+                   <div className="commenList">
+                       Hello, World! I am a CommentList
+                   </div>
+           );
+       }
+    });
+    var CommentForm = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentForm">
+                        Hello, World! I am a CommentForm
+                    </div>
+            );
+        }
+    });
     ReactDOM.render(
             <CommentBox />,
         document.getElementById('content')

@@ -9544,7 +9544,38 @@ var CommentBox = _react2.default.createClass({
         return _react2.default.createElement(
             'div',
             { className: 'commentBox' },
-            'Hello, world! I am a CommentBox.'
+            _react2.default.createElement(
+                'h1',
+                null,
+                'Comments'
+            ),
+            _react2.default.createElement(CommentList, null),
+            _react2.default.createElement(CommentForm, null)
+        );
+    }
+});
+
+// tutorial2.js
+var CommentList = _react2.default.createClass({
+    displayName: 'CommentList',
+
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            { className: 'commentList' },
+            'Hello, world! I am a CommentList.'
+        );
+    }
+});
+
+var CommentForm = _react2.default.createClass({
+    displayName: 'CommentForm',
+
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            { className: 'commentForm' },
+            'Hello, world! I am a CommentForm.'
         );
     }
 });

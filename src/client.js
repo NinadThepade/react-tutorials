@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Remarkable from 'remarkable';
 
 // tutorial1.js
 var CommentBox = React.createClass({
@@ -17,6 +18,7 @@ var CommentBox = React.createClass({
 // tutorial2.js
 var CommentList = React.createClass({
     render: function() {
+        // tutorial4.js - adding component properties
         return (
             <div className="commentList">
                 <Comment author="Pete Hunt">This is one comment</Comment>
@@ -35,15 +37,16 @@ var CommentForm = React.createClass({
         );
     }
 });
-// tutorial4.js
+// tutorial4.js - using props
 var Comment = React.createClass({
     render: function() {
+        var md = new Remarkable();
         return (
             <div className="comment">
                 <h2 className="commentAuthor">
                     {this.props.author}
                 </h2>
-                {this.props.children}
+                {md.render(this.props.children.toString())}
             </div>
         );
     }

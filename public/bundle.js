@@ -14789,7 +14789,7 @@ var CommentBox = _react2.default.createClass({
                 null,
                 'Comments'
             ),
-            _react2.default.createElement(CommentList, null),
+            _react2.default.createElement(CommentList, { data: this.props.data }),
             _react2.default.createElement(CommentForm, null)
         );
     }
@@ -14800,20 +14800,17 @@ var CommentList = _react2.default.createClass({
     displayName: 'CommentList',
 
     render: function render() {
-        // tutorial4.js - adding component properties
+        var commentNodes = this.props.data.map(function (comment) {
+            return _react2.default.createElement(
+                Comment,
+                { author: comment.author, key: comment.id },
+                comment.text
+            );
+        });
         return _react2.default.createElement(
             'div',
             { className: 'commentList' },
-            _react2.default.createElement(
-                Comment,
-                { author: 'Pete Hunt' },
-                'This is one comment'
-            ),
-            _react2.default.createElement(
-                Comment,
-                { author: 'Jordan Walke' },
-                'This is *another* comment'
-            )
+            commentNodes
         );
     }
 });
@@ -14848,7 +14845,10 @@ var Comment = _react2.default.createClass({
     }
 });
 
-_reactDom2.default.render(_react2.default.createElement(CommentBox, null), document.getElementById('root'));
+// tutorial8.js
+var data = [{ id: 1, author: "Pete Hunt", text: "This is one comment" }, { id: 2, author: "Jordan Walke", text: "This is *another* comment" }];
+
+_reactDom2.default.render(_react2.default.createElement(CommentBox, { data: data }), document.getElementById('root'));
 
 /***/ }),
 /* 94 */
